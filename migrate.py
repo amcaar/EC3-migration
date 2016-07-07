@@ -148,9 +148,9 @@ def launch_daemon():
         try:
             logging.info("Downloading checkpoint files to S3")
             run_command("sshpass -p 'yoY0&yo' ssh -o StrictHostKeyChecking=no ubuntu@" + clon_ip + "aws s3 cp s3://amcaar-cluster-migration/" + key + "/ /home/ubuntu/" + key + "/ --recursive")
-            logging.info("Upload performed succesfully")
+            logging.info("Download performed succesfully")
         except:
-            logging.error("Error while uploading checkpoint files to S3")
+            logging.error("Error while downloading checkpoint files to S3")
         
     # Restart the jobs in the cloned cluster
     for key, value in job_list.iteritems():
